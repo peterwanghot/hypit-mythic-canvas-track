@@ -1,0 +1,48 @@
+{
+  "name": "hypit-mythic-canvas-track",
+  "version": "1.0.0",
+  "description": "Deterministic Canvas/WebGL atmosphere, scene motion, timed popups, title, and karaoke-caption track for Hypit.",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "hypit",
+    "video",
+    "hyperframes",
+    "webgl",
+    "particles",
+    "popups",
+    "karaoke-captions"
+  ],
+  "hypit": {
+    "activation": "./dist/activation.js"
+  },
+  "exports": {
+    ".": "./dist/render.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@hypit/hypit": ">=0.2.6 <0.3.0"
+  },
+  "devDependencies": {
+    "@hypit/hypit": "0.2.6",
+    "typescript": "5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterwanghot/hypit-mythic-canvas-track.git"
+  },
+  "bugs": {
+    "url": "https://github.com/peterwanghot/hypit-mythic-canvas-track/issues"
+  },
+  "homepage": "https://github.com/peterwanghot/hypit-mythic-canvas-track#readme"
+}

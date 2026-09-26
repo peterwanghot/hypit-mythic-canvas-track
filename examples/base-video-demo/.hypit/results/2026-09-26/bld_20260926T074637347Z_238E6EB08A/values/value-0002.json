@@ -1,0 +1,13 @@
+{
+  "format": "hypit.result-value@1",
+  "value": {
+    "durationSec": 6,
+    "frameRate": {
+      "denominator": 1,
+      "numerator": 30
+    },
+    "id": "program",
+    "items": []
+  },
+  "resources": []
+}

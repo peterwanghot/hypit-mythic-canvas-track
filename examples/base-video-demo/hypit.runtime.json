@@ -1,0 +1,23 @@
+{
+  "format": "hypit.runtime-local@1",
+  "dataRoot": ".hypit/runtimes/local",
+  "credentials": {
+    "platform": { "use": "@hypit/credential-store-platform" }
+  },
+  "endpoints": {
+    "media.local": {
+      "use": "@hypit/provider-media-local",
+      "config": { "processTimeoutMs": 3600000 }
+    },
+    "hyperframes.local": {
+      "use": "@hypit/provider-hyperframes-local",
+      "config": {
+        "chromePath": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "workers": 4,
+        "maxWorkers": 4,
+        "browserGpu": "hardware",
+        "processTimeoutMs": 7200000
+      }
+    }
+  }
+}

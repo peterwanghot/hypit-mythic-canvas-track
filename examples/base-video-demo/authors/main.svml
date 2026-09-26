@@ -1,0 +1,52 @@
+<?svml using="@hypit/markup@1"?>
+<svml>
+  <import as="time" from="@hypit/timeline-author@1"/>
+  <import as="space" from="@hypit/spatial@1"/>
+  <import as="media" from="@hypit/media@1"/>
+  <import as="pipeline" from="@hypit/media-pipeline@1"/>
+  <import as="media-track" from="@hypit/media-track@1"/>
+  <import as="mythic" from="hypit-mythic-canvas-track@1"/>
+  <import as="film" from="@hypit/film@1"/>
+  <import as="render" from="@hypit/render-hyperframes@1"/>
+  <import as="style" source="./main.svs"/>
+
+  <time:Clock id="clock" frame-rate="30"/>
+  <time:Timeline id="program" clock={clock} end="6s"/>
+  <space:Canvas id="canvas" width="1080" height="1920"/>
+  <space:Frame id="full" within={canvas} left="0%" top="0%" right="100%" bottom="100%"/>
+  <media:Video id="base-video" src="../assets/base_video_sample.mp4"/>
+  <media:Image id="transparent-title" src="../assets/transparent-title.png"/>
+  <media:Image id="transparent-dummy" src="../assets/transparent-dummy.png"/>
+  <pipeline:Normalize id="base-media" source={base-video} clock={clock}
+    video="primary-moving" audio="default" span-authority="video"/>
+
+  <media-track:Track id="base-track" timeline={program.timeline} canvas={canvas}>
+    <media-track:Item id="base-item" media={base-media.media} frame={full}
+      at="0s" for="6s" appearance={style.media.base} source-audio="content"/>
+  </media-track:Track>
+
+  <mythic:Track id="overlay" timeline={program.timeline} canvas={canvas}
+    title={transparent-title} title-fade-start="0" title-end="0"
+    transparent="true" badge-size="34" subtitle-size="56"
+    badge-y="1450" subtitle-y="1574" during="program">
+    <mythic:Scene id="dummy-scene" image={transparent-dummy} at="0"
+      start-zoom="1.0" end-zoom="1.0" start-y="0" end-y="0"/>
+    <mythic:Cue id="cue-01" start="0.4" end="1.6"
+      text="底板视频" tone="gold"/>
+    <mythic:Cue id="cue-02" start="2.0" end="3.6"
+      text="透明视觉叠加" tone="blue"/>
+    <mythic:Cue id="cue-03" start="4.0" end="5.7"
+      text="视频与字幕同轨合成" tone="gold"/>
+    <mythic:Effect id="gold-dust" amount="0.55" min-size="2.5" max-size="5.5"
+      color="#FFE6A8" seed="12"/>
+    <mythic:Effect id="soft-bokeh" amount="0.10" min-size="48" max-size="110"
+      color="#FFD98A" seed="22"/>
+  </mythic:Track>
+
+  <film:Film id="main" canvas={canvas} timeline={program.timeline} appearance={style.film.main}>
+    <film:Track source={base-track.visual}/>
+    <film:Track source={overlay.track}/>
+    <film:Track source={base-track.audio}/>
+  </film:Film>
+  <render:Video id="preview" composition={main.composition} timeline={program.timeline}/>
+</svml>

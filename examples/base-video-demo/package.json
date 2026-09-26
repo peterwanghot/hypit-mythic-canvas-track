@@ -1,0 +1,9 @@
+{
+  "name": "mythic-base-video-demo",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@hypit/hypit": "0.2.6",
+    "hypit-mythic-canvas-track": "file:../.."
+  }
+}

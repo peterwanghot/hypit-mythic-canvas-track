@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <style>
+    .sample { font-family: Arial, Helvetica, sans-serif; font-size: 48px; font-weight: 700; letter-spacing: 2px; fill: white; fill-opacity: .78; stroke: black; stroke-opacity: .68; stroke-width: 2px; paint-order: stroke; }
+  </style>
+  <text class="sample" x="36" y="84">sample</text>
+  <text class="sample" x="1044" y="1848" text-anchor="end">sample</text>
+</svg>

@@ -1,0 +1,46 @@
+{
+  "format": "hypit.result-value@1",
+  "value": {
+    "audio": {
+      "artifact": null
+    },
+    "timeline": {
+      "frameCount": 300,
+      "frameRate": {
+        "denominator": 1,
+        "numerator": 30
+      }
+    },
+    "visual": {
+      "artifact": null,
+      "height": 1920,
+      "width": 1080
+    }
+  },
+  "resources": [
+    {
+      "at": [
+        "audio",
+        "artifact"
+      ],
+      "file": {
+        "kind": "build-file",
+        "path": "files/file-0001.wav",
+        "size": 1920078,
+        "mediaType": "audio/wav"
+      }
+    },
+    {
+      "at": [
+        "visual",
+        "artifact"
+      ],
+      "file": {
+        "kind": "build-file",
+        "path": "files/file-0001.mp4",
+        "size": 4274579,
+        "mediaType": "video/mp4"
+      }
+    }
+  ]
+}
